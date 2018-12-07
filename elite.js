@@ -33,40 +33,7 @@ client.user.setGame(`Elite Community ♪..  `,"https://www.twitch.tv/dggamingbot
  
  
 client.login(process.env.BOT_TOKEN);
-
-
--------------------------------------- Ban WHo share server ------------------------------
-
-
-client.on('message', message => {
-    if (message.content.includes('discord.gg')){
-                        if(!message.channel.guild) return message.reply ('')
-                    if (!message.member.hasPermissions(['MANAGE_MESSAGES'])){
-       message.channel.send('ban <@' + message.author.id + '>')
-       message.delete()
-       }
-    }
-          if (message.content.startsWith("ban")) {
-             if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply();
-             var member= message.mentions.members.first();
-             member.ban().then((member) => {
-                 message.channel.sendMessage("", {embed: {
-                 author: {
-                 },
-                 title: 'بسبب النشر ' + member.displayName + ' تم حظر',
-                 color: 490101,
-                 }
-               });
-           }
-         )
-       }
-   });
-
-
------------------------------ clear chat -----------------------------
- 
- 
- client.on('message', msg => {
+client.on('message', msg => {
 	var prefix = "$";
   if (msg.author.bot) return;
   if (!msg.content.startsWith(prefix)) return;
@@ -90,5 +57,3 @@ client.on('message', message => {
     }
 }
 });
-
-
